@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Racing Game</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        canvas {
+            display: block;
+        }
+
+        #ui {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: white;
+            font-family: sans-serif;
+        }
+
+        .game-over {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-family: sans-serif;
+            font-size: 24px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="ui">Score: 0, Crashes: 0</div>
+    <div id="game-over" class="game-over" style="display: none;">
+        Game Over! <br>
+        Your Score: <span id="final-score">0</span> <br>
+        <button id="restart-button">Restart</button>
+    </div>
+    <div id="gameContainer" style="width: 100%; height: 100vh;"></div>
+    <script src="http://192.168.31.114:7888/dist/race-game-library.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('gameContainer');
+            const config = {
+                playerSpeed: 0.1,
+                enemySpeed: 0.1,
+                maxCrashes: 3
+            };
+            const game = new RaceGameLibrary.Game(container, config);
+            const car = new RaceGameLibrary.Car(0xffffff);
+            const track = new RaceGameLibrary.Track();
+            game.addCar(car);
+            game.addTrack(track);
+
+            // 加载天空盒
+            const skyboxPath = 'http://192.168.31.114:7888/skybox/skybox4.hdr';
+            game.loadSkybox(skyboxPath);
+        });
+
+        document.getElementById("restart-button").addEventListener("click", () => {
+            location.reload();
+        });
+    </script>
+</body>
+
+</html>
