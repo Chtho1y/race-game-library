@@ -11,12 +11,8 @@ http-server . -a your-ip-address -p 7888
 ```
 
 一、引入方式
-只需要在你的HTML文件中引入这个JS库：
+引入这个JS库：
 <script src="race-game-library.js path"></script>
-
-<!--办公室局域网-->
-<script src="http://192.168.31.114:7888/dist/race-game-library.js"></script>
-暂时无法在飞书文档外展示此内容
 
 二、快速开始
 1. 创建游戏容器
@@ -151,4 +147,3 @@ new RaceGameLibrary.Track()
 </body>
 
 </html>
-[图片]
