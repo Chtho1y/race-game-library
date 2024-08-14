@@ -7,5 +7,5 @@ npm run build
 ```
 
 ```
-http-server . -a your-ip-address -p 7888
+http-server . -a your-ip-address -p your-port
 ```
